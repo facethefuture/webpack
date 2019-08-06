@@ -20,11 +20,13 @@
 
 
 import _ from 'lodash'
+import {print} from './print'
 const chunkFun = function () {
     console.log(
         _.join(['Another', 'module', 'loaded!'], ' ')
     );
 }
+print()
 console.log('我是chunk')
 export {
     chunkFun
