@@ -10,16 +10,12 @@ module.exports = {
     output: {
         path: path.resolve("public/dist"),//打包后的文件存放的地方
         // filename: "bundle.js",//打包后输出文件的文件名
-        filename: '[name].[chunkhash].js',
+        filename: '[hash].js',
         publicPath: './public/dist/'
     },
-    devtool: 'inline-source-map',
-    devServer: {
-        contentBase: path.join('./public/dist'),
-        compress: true,
-        port: 9000
-    },
-    plugins: [new CleanWebpackPlugin(),new HtmlWebpackPlugin({
+    plugins: [new CleanWebpackPlugin({
+        cleanOnceBeforeBuildPatterns: ['./public']
+    }),new HtmlWebpackPlugin({
         title: 'Caching',
         // path: '../../index.html'
         filename: '../index.html',
